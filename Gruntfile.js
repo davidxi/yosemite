@@ -28,7 +28,8 @@ module.exports = function(grunt) {
             'lib/base.js',
             'lib/util.js',
             'lib/view.js',
-            'lib/route.js'
+            'lib/route.js',
+            'vendor/sha1.js'
         ],
         dest: 'dist/<%= pkg.name %>'
       }
