@@ -73,11 +73,6 @@ module.exports = function(grunt) {
     .filter(function(npmTaskName) { return npmTaskName.indexOf('grunt-contrib') === 0; })
     .filter(function(npmTaskName) { return npmTaskName !== 'grunt-cli'; })
     .forEach(function(npmTaskName) { grunt.loadNpmTasks(npmTaskName); });
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
   grunt.registerTask('default', ['clean', 'concat']);
