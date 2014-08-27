@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Yosemite.js | Make It Easier From Website to Web-App</title>
+  <link rel="stylesheet" href="//prismjs.com/themes/prism.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- navigation -->
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="index.html">
+          <img src="//icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/256/launchpad-icon.png">Yosemite.js</a>
+        <ul class="nav-site">
+          <li><a href="tutorial.html" class="">docs</a>
+          </li>
+          <li><a href="https://github.com/davidxi/yosemite" class="">github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="content wrap documentationContent">
+      <div class="nav-docs">
+        <div class="nav-docs-section">
+          <h3>Quick Start</h3>
+          <ul>
+            <li><a style="margin-left:0;" class="" href="tutorial.html#content">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-docs-section">
+          <h3>Reference</h3>
+          <ul>
+            <li><a style="margin-left:0;" class="" href="component-specs.html#content">Lifecycle Callbacks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="inner-content">
+        <a id="content"></a>
+        <h1>Lifecycle Callbcaks</h1>
+        <div>
+
+<!-- tutorial -->
+<p>With the concept of web app routing, we deal with each page context in a period of its lifecycle, which starts from pre-invoking the request to un-mounting its content. And we provide serveral callbacks in certain points of each lifecycle to let you control the whole page context flow.</p>
+
+<h3>componentWillMount</h3>
+<p>This function is invoked only <b>once</b>, which is after the component instance has been initialized.</p>
+<ul>
+  <li>You can restore the last visited URL from cookie at this point.</li>
+</ul>
+
+<h3>componentWillUnmount</h3>
+<p>This function is invoked only <b>once</b>, which is before the page is going to redirect to another page. The redirect-to page's URL is passed as the argument.</p>
+<ul>
+  <li>You can evaluate whether to redirect to another page. If you return <code>false</code> in the function, it will not redirect.</li>
+</ul>
+
+<hr>
+
+<h3>componentWillRoute</h3>
+<p>This function is invoked before the AJAX request is made. </p>
+<ul>
+  <li>You can modify the AJAX url. For most cases, you don't need to, but in some cases that you may want add an extra param to tell the controller to return the pure partial string.</li>
+  <li>You can show a loading animation at this point.</li>
+</ul>
+<p>If you return <code>false</code> in the function, no AJAX request will be made, and this routing flow for current URL will end.
+
+<h3>componentFailRoute</h3>
+<p>This function is invoked when the AJAX request failed.</p>
+
+<h3>componentWillUpdate</h3>
+<p>This function is invoked before updating the host page content with the AJAX returned html string</p>
+<ul>
+  <li>You can modify the content string before it is used to update the host page.</li>
+</ul>
+<p>If you return <code>false</code> in the function, no update will be made, and this lifecycle will end.</p>
+
+<h3>componentDidUpdate</h3>
+<p>This function is invoked after the host page content has been updated to the returned AJAX request.</p>
+
+<h3>componentFailUpdate</h3>
+<p>This function is invoked when host page content has failed updating its content. Mostly it is because there is some JavaScript errors thrown out in the inline script of the embeded page.</p>
+
+<hr>
+
+<h3>componentWillClickLink</h3>
+<p>This function is invoked when a link is clicked in the embeded page.</p>
+
+<h3>componentWillSubmitForm</h3>
+<p>This function is invoked when a form is about to be sumbitted in the embeded page.</p>
+
+<!-- ./ tutorial -->
+        </div>
+      </div>
+    </section>
+    <footer class="wrap">
+      <div class="right"></div>
+    </footer>
+  </div>
+</body>
+
+</html>

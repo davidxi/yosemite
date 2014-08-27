@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Yosemite.js | Make It Easier From Website to Web-App</title>
+  <link rel="stylesheet" href="//prismjs.com/themes/prism.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- navigation -->
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="index.html">
+          <img src="//icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/256/launchpad-icon.png">Yosemite.js</a>
+        <ul class="nav-site">
+          <li><a href="tutorial.html" class="">docs</a>
+          </li>
+          <li><a href="https://github.com/davidxi/yosemite" class="">github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="content wrap documentationContent">
+      <div class="nav-docs">
+        <div class="nav-docs-section">
+          <h3>Quick Start</h3>
+          <ul>
+            <li><a style="margin-left:0;" class="" href="tutorial.html#content">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-docs-section">
+          <h3>Reference</h3>
+          <ul>
+            <li><a style="margin-left:0;" class="" href="component-specs.html#content">Lifecycle Callbacks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="inner-content">
+        <a id="content"></a>
+        <h1>Hello World</h1>
+        <div>
+
+<!-- tutorial -->
+<p>To begin, let&#x27;s say you have a partial file <code>sayHello.php</code> in the backend. Very typical code:</p>
+
+<pre class="prism  language-php"><code class=" language-php"><span class="token comment" spellcheck="true">// sayHello.php
+</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span></span>Hello <span class="token php"><span class="token delimiter">&lt;?</span><span class="token operator">=</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'who'</span><span class="token punctuation">]</span> <span class="token delimiter">?&gt;</span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sayHello.php<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+  Say hello to<span class="token punctuation">:</span> <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>who<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Submit<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sayHello.php?who<span class="token punctuation">=</span>Emily<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>Say hello to Emilty<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sayHello.php?who<span class="token punctuation">=</span>Katy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>Say hello to Katy<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+
+<p>Now, make a new file which will be used as the page container for holding the above partial file. Let's say the file is called <code>index.php</code></p>
+
+<pre class="prism  language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- some fancy css files go here, such as bootstrap --&gt;</span>
+  <span class="token comment" spellcheck="true">&lt;!-- dependencies --&gt;</span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.form.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- yosemite.js --&gt;</span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yosemite.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pageContainer<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    window<span class="token punctuation">.</span>Yosemite<span class="token punctuation">.</span><span class="token function">init<span class="token punctuation">(</span></span>$<span class="token punctuation">(</span><span class="token string">'#pageContainer'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<p>Now, open any web browser, go to <code>/#!/sayHello.php</code>. Boom, you can see the actual partial <code>sayHello.php</code> is embeded and displayed in the outter host page.
+
+<p>This is because the <code>Yosemite.js</code> has a routing logic to extract the actual URL, and makes an AJAX request to update the host page.
+
+<blockquote>
+  <p>Note:</p>
+  <p>You may noticed that in the second step, we named the host page to be <code>index.php</code>. The reason is that we want to make the route URL look prettier.</p>
+  <p>If we name the host page another name, like <code>dispatchter.php</code>, the route URL will become <code>/dispatcher.php#!/sayHello.php</code>, which is not intuitive around the hash mark.
+</blockquote>
+
+<p>Then, soon you will find a cool thing is that, when you click any link, or submit button, you will notice the host page respond to the embeded page accordingly. <b>Even though, we didn't make any code change to the embeded page.</b></p>
+
+<p>This is because <code>Yosemite.js</code> will intercept all link-clicking and form-submitting in the embeded page, and make it go through the AJAX request in the host page context.</p>
+
+<p>This is an example we hook one web page into a host page context. And of course, you can scale it up, you can have ten web pages, or one-hundred web pages, both being served in the host page context. And, boom, <b>you have a web application</b>.
+
+<p>But converting to web application is not the sake we do for. Right? The benifit is that, with only one host page context, we can share a global context, and make code more easy to manage. Right? with one single host page, you can set up a global event flow system if you want; you can set up a global css system and overwrite embeded pages' css if you want; You can add animation during page loading if you want; You can make the embeded pages and host pages running in totally different backend systems respectively if you want. Anyhow, with <code>Yosemite.js</code>, it makes all the things much easier.<p>
+
+<!-- ./ tutorial -->
+        </div>
+      </div>
+    </section>
+    <footer class="wrap">
+      <div class="right"></div>
+    </footer>
+  </div>
+</body>
+
+</html>
