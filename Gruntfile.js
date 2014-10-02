@@ -16,20 +16,11 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        banner: '<%= banner %>' + '\n' + ';(function(){',
-        footer: '})();',
-        process: function(src, filepath) {
-            return '\n' + '/* @concat: ' + filepath + ' */' + '\n' + src;
-//                src.replace(new RegExp('^\\s*(?:' + '\\/\\*[^!][\\s\\S]*?\\*\\/' + ')\\s*', ''));
-        },
+        banner: '<%= banner %>' + '\n',
       },
       dist: {
         src: [
-            'lib/base.js',
-            'lib/util.js',
-            'lib/view.js',
-            'lib/route.js',
-            'vendor/sha1.js'
+            'dist/<%= pkg.name %>'
         ],
         dest: 'dist/<%= pkg.name %>'
       }
@@ -66,6 +57,13 @@ module.exports = function(grunt) {
         files: '<%= jshint.lib_test.src %>',
         tasks: ['jshint:lib_test', 'qunit']
       }
+    },
+    browserify: {
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>': ['lib/base.js'],
+        }
+      }
     }
   });
 
@@ -74,7 +72,9 @@ module.exports = function(grunt) {
     .filter(function(npmTaskName) { return npmTaskName !== 'grunt-cli'; })
     .forEach(function(npmTaskName) { grunt.loadNpmTasks(npmTaskName); });
 
+  grunt.loadNpmTasks('grunt-browserify');
+
   // Default task.
-  grunt.registerTask('default', ['clean', 'concat']);
+  grunt.registerTask('default', ['clean', 'browserify', 'concat']);
 
 };
